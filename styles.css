@@ -1,0 +1,173 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(270deg, #f8f6f2, #ece8e1, #f8f6f2);
+    background-size: 600% 600%;
+    animation: bg 16s ease infinite;
+}
+
+@keyframes bg {
+    0% {background-position: 0%}
+    50% {background-position: 100%}
+    100% {background-position: 0%}
+}
+
+/* SCENE */
+.scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(10px);
+    transition: 0.6s ease;
+}
+
+.scene.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 50px;
+    border-radius: 22px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 12px 26px;
+    border-radius: 30px;
+    border: none;
+    background: #6b705c;
+    color: white;
+}
+
+.no {
+    background: #ddd;
+    position: absolute;
+}
+
+/* CHARACTERS */
+.characters {
+    display: flex;
+    justify-content: space-around;
+}
+
+.character {
+    width: 70px;
+    height: 70px;
+    background: #f1d0b5;
+    border-radius: 50%;
+    position: relative;
+}
+
+.character::before,
+.character::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #333;
+    position: absolute;
+    top: 25px;
+    border-radius: 50%;
+}
+
+.character::before { left: 18px; }
+.character::after { right: 18px; }
+
+.character.sad::after {
+    content:"";
+    width:30px;height:10px;
+    background:#333;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    position:absolute;
+    border-radius:0 0 30px 30px;
+}
+
+.character.happy::after {
+    content:"";
+    width:30px;height:10px;
+    background:#333;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    position:absolute;
+    border-radius:30px 30px 0 0;
+}
+
+/* CHAT */
+.chat { text-align:left; }
+.msg { padding:10px; margin:5px 0; border-radius:10px; background:#ece8e1; }
+
+/* LILIES */
+#lily-container { position:fixed; width:100%; height:100%; }
+
+.lily {
+    position:absolute;
+    width:20px;height:20px;
+}
+
+.lily::before,
+.lily::after {
+    content:"";
+    position:absolute;
+    width:20px;height:4px;
+    background:crimson;
+}
+
+.lily::before { transform:rotate(45deg); }
+.lily::after { transform:rotate(-45deg); }
+
+/* HEART */
+.heart {
+    position:fixed;
+    font-size:18px;
+}
+
+/* 🌸 BOUQUET */
+.bouquet {
+    position: relative;
+    margin: 30px auto;
+    width: 120px;
+    height: 140px;
+}
+
+.stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 6px;
+    height: 80px;
+    background: #6b705c;
+    transform: translateX(-50%);
+}
+
+.flower {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.f1 { background: crimson; top:10px; left:20px;}
+.f2 { background:#ff6b6b; top:0px; left:50px;}
+.f3 { background:#f28482; top:20px; left:75px;}
+.f4 { background:#e5989b; top:35px; left:40px;}
+.f5 { background:#b5838d; top:15px; left:60px;}
+
+.hidden { display:none; }
